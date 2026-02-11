@@ -9,22 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-        
-    var restaurantList  = ["Restoran1","Restoran2","Restoran3","Restoran4","Restoran5",]
+    var photos = ["images1", "image2", "images3", "images4", "restaurant"]
+    
+    var restaurantList  = ["Restoran 1","Restoran 2","Restoran 3","Restoran 4","Restoran 5",]
     
     
     var body: some View {
         
+        
         List {
-            ForEach(0...restaurantList.count-1, id: \.self) { index in
+            ForEach(0..<restaurantList.count, id: \.self) { index in
                 
                 HStack {
-                    Image("restaurant")
+                    
+                    Image(photos[index])
                         .resizable()
                         .frame(width: 50, height: 50)
                     
                     Text(restaurantList[index])
-                    
+                                        
                 }
             }
         }
@@ -32,7 +35,6 @@ struct ContentView: View {
         
     }
 }
-
 #Preview {
     ContentView()
 }
