@@ -14,7 +14,7 @@
 
 import SwiftUI
 
-struct v2: View {
+struct RestaurantListView: View {
     
    static let restoran1: Restaurnat = Restaurnat(
         title: "Cafe Deadend",
@@ -65,27 +65,13 @@ struct v2: View {
             
             ForEach(list.indices, id: \.self) { index in
                 
-                VStack(alignment: .leading,spacing: 10) {
-                    
-                    Image(list[index].image)
-                        .resizable()
-                        .frame(height: 250)
-                        .cornerRadius(20)
-                    
-                    VStack(alignment: .leading) {
-                        Text(list[index].title)
-                            .font(.system(.title2, design: .rounded))
-                        Text(list[index].type.rawValue)
-                            .font(.system(.body, design: .rounded))
-                            
-                        Text(list[index].location)
-                            .font(.system(.subheadline, design: .rounded))
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                    
-                }
+                RestaurantView(
+                    title: list[index].title,
+                    type: list[index].type,
+                    location: list[index].location,
+                    image: list[index].image
+                )
+        
             }
             
             .listRowSeparator(.hidden)
@@ -95,5 +81,5 @@ struct v2: View {
     }
 }
 #Preview {
-    v2()
+    RestaurantListView()
 }
